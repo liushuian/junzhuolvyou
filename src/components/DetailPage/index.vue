@@ -26,7 +26,13 @@
         </div>
       </div>
       <!-- tab栏 -->
-      <div class="detailpage-main-bottom"></div>
+      <div class="detailpage-main-bottom">
+        <van-tabs v-model="activeName">
+          <van-tab title="标签 1" name="a">内容 1</van-tab>
+          <van-tab title="标签 2" name="b">内容 2</van-tab>
+          <van-tab title="标签 3" name="c">内容 3</van-tab>
+        </van-tabs>
+      </div>
     </div>
     <!-- 底部导航 -->
     <div class="detailpage-footer">
@@ -43,8 +49,7 @@
   </div>
 </template>
 <script>
-
-import { NavBar, Icon, Button, Cell } from "vant";
+import { NavBar, Icon, Button, Cell, Tab, Tabs } from "vant";
 export default {
   name: "DetailPage",
   components: {
@@ -52,10 +57,13 @@ export default {
     [Icon.name]: Icon,
     [Button.name]: Button,
     [Cell.name]: Cell,
-   
+    [Tab.name]: Tab,
+    [Tabs.name]: Tabs,
   },
   data() {
-    return {};
+    return {
+      activeName: 'a',
+    };
   },
   created() {},
   methods: {
@@ -122,8 +130,8 @@ export default {
     }
     &-bottom {
       width: 100%;
-      height: 500px;
-      background-color: red;
+      // height: 500px;
+      // background-color: red;
     }
   }
   &-footer {
